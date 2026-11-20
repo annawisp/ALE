@@ -1,0 +1,7 @@
+﻿题号,案例族,作答方式,评分版本,自动分（满分80）,人工分（满分20）,最终分（满分100）,答卷题项数,摘录位置,公开摘录JSON路径,原始response.json的SHA256,原始评分JSON的SHA256
+T001,F01,ChatGPT 网页版 Accounting,v1.1,80.0000,,,9,B001、UNMATCHED_LEDGER,evidence.json#/题目/T001,69586dc251dddd4432a8b9ded8c6b6a028d46fd09a0722e6700e730d3e462e62,0d5f002df684193f709fac1e050272a43453c1248eea85799fc1579cab8caad3
+T002,F01,ChatGPT 网页版 Accounting,原始试评报告,80.0000,20.00,100.00,9,B003、B007,evidence.json#/题目/T002,4a49eefc6505d17d4a65b87aa8ca488bb49fb860baf3b1a6040997fcfafbdef5,7eac4fb88126f17b189ee0b614dc562af27f48efeab2b5f4574be0a7107e096e
+T005,F01,独立托管 Codex 会话使用 Accounting,v1.1,76.6667,,,9,B003、UNMATCHED_LEDGER,evidence.json#/题目/T005,a28b59d1b70514186fb207a5d7d043527250f6542bd6d31c83e450b14cf4b11b,617bc316430de189efa8a46710d188ce1552b7e6fd5ce8fe661ccccc8487a518
+T049,F09,ChatGPT 网页版 Accounting,v1.1,77.5000,,,4,月结!B2、月结!B6,evidence.json#/题目/T049,48b1eea54bc26bc1e53d148f2511cbd971e5292a52016b14220bdc139dd21dc4,e617929e9ed97ca9009a7c0b2462844a904db3895a8d768335860c731be7e5d5
+T050,F09,独立托管 Codex 会话使用 Accounting,v1.1,77.5000,,,4,月结!B2、月结!B4、月结!B6,evidence.json#/题目/T050,b0e718274968975010970f19cd079f7a63d27c3a2486e77ee6c91445dab3f4c8,92ec6f257918e91234827515be16620c69c7153e80b5875304ee2cee9f926d65
+T053,F09,独立托管 Codex 会话使用 Accounting,v1.1,65.7143,,,4,月结!B2、月结!B3、月结!B4、月结!B6,evidence.json#/题目/T053,d1e46bbc658f11498bd537b70acfd90e368e48ebefe656a3810f7f2b31c00887,e32ae1f7c8e0b9ed9838f2ec27be90db2ad69bbd778bed64081c4cf4507da67b

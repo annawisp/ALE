@@ -1,0 +1,683 @@
+{
+  "说明": "节选自已交付的合成开发题答卷、原始评分与独立工作簿复算结果。空的人工分或最终分表示未出具该分数。SHA256 指向原始文件字节。",
+  "题目": {
+    "T001": {
+      "运行方式": "ChatGPT 网页版 Accounting",
+      "案例": "F01",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "星屿软件（虚构）",
+      "题设主体": "星屿软件（虚构）",
+      "自动分": 80.0,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "待人工评分",
+      "原报告门槛标记": [],
+      "原答卷结构化文件SHA256": "69586dc251dddd4432a8b9ded8c6b6a028d46fd09a0722e6700e730d3e462e62",
+      "原评分JSON的SHA256": "0d5f002df684193f709fac1e050272a43453c1248eea85799fc1579cab8caad3",
+      "题项总数": 9,
+      "题项状态统计": {
+        "INFO": 1,
+        "MATCHED": 8
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "B001",
+          "value": {
+            "ledger_ids": [
+              "L001"
+            ],
+            "difference": "0.00"
+          },
+          "status": "MATCHED",
+          "evidence_refs": [
+            "原始材料/bank.csv#B001",
+            "原始材料/ledger.csv#L001"
+          ]
+        },
+        {
+          "item_id": "UNMATCHED_LEDGER",
+          "value": [],
+          "status": "INFO",
+          "evidence_refs": [
+            "原始材料/ledger.csv#L001",
+            "原始材料/ledger.csv#L002",
+            "原始材料/ledger.csv#L003",
+            "原始材料/ledger.csv#L004",
+            "原始材料/ledger.csv#L005",
+            "原始材料/ledger.csv#L006",
+            "原始材料/ledger.csv#L007",
+            "原始材料/ledger.csv#L008"
+          ]
+        }
+      ]
+    },
+    "T002": {
+      "运行方式": "ChatGPT 网页版 Accounting",
+      "案例": "F01",
+      "运行轮次": 1,
+      "自动评分口径": "原始试评报告",
+      "实际主体": "星屿软件（虚构）",
+      "题设主体": "星屿软件（虚构）",
+      "自动分": 80.0,
+      "自动满分": 80,
+      "人工分": 20.0,
+      "最终分": 100.0,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "通过",
+      "原报告门槛标记": [],
+      "原答卷结构化文件SHA256": "4a49eefc6505d17d4a65b87aa8ca488bb49fb860baf3b1a6040997fcfafbdef5",
+      "原评分JSON的SHA256": "7eac4fb88126f17b189ee0b614dc562af27f48efeab2b5f4574be0a7107e096e",
+      "题项总数": 9,
+      "题项状态统计": {
+        "DIFFERENCE": 1,
+        "INFO": 1,
+        "MATCHED": 6,
+        "UNMATCHED": 1
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "B003",
+          "value": {
+            "ledger_ids": [
+              "L003"
+            ],
+            "difference": "80.00"
+          },
+          "status": "DIFFERENCE",
+          "evidence_refs": [
+            "原始材料/bank.csv#B003",
+            "原始材料/ledger.csv#L003"
+          ]
+        },
+        {
+          "item_id": "B007",
+          "value": {
+            "ledger_ids": [],
+            "difference": null
+          },
+          "status": "UNMATCHED",
+          "evidence_refs": [
+            "原始材料/bank.csv#B007"
+          ]
+        }
+      ]
+    },
+    "T005": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F01",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "星屿软件（虚构）",
+      "题设主体": "星屿软件（虚构）",
+      "自动分": 76.6667,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 26.6667,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [
+        "REQUIRED_FACTS_INCORRECT"
+      ],
+      "原答卷结构化文件SHA256": "a28b59d1b70514186fb207a5d7d043527250f6542bd6d31c83e450b14cf4b11b",
+      "原评分JSON的SHA256": "617bc316430de189efa8a46710d188ce1552b7e6fd5ce8fe661ccccc8487a518",
+      "题项总数": 9,
+      "题项状态统计": {
+        "INFO": 1,
+        "MATCHED": 7,
+        "REVIEW": 1
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "B003",
+          "value": {
+            "ledger_ids": [
+              "L003",
+              "L099"
+            ],
+            "difference": null
+          },
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/bank.csv#B003",
+            "原始材料/ledger.csv#L003",
+            "原始材料/ledger.csv#L099"
+          ]
+        },
+        {
+          "item_id": "UNMATCHED_LEDGER",
+          "value": [
+            "L003",
+            "L099"
+          ],
+          "status": "INFO",
+          "evidence_refs": [
+            "原始材料/ledger.csv#L003",
+            "原始材料/ledger.csv#L099",
+            "原始材料/bank.csv#B003"
+          ]
+        }
+      ],
+      "独立核验": {
+        "B003候选": [
+          "L003",
+          "L099"
+        ],
+        "B003实际差额": null,
+        "专家模板B003账簿ID": [],
+        "未确定匹配账簿ID": [
+          "L003",
+          "L099"
+        ]
+      }
+    },
+    "T049": {
+      "运行方式": "ChatGPT 网页版 Accounting",
+      "案例": "F09",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "臻衡制造",
+      "题设主体": "臻衡制造（虚构）",
+      "自动分": 77.5,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 7.5,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [
+        "SCOPE_INCORRECT"
+      ],
+      "原答卷结构化文件SHA256": "48b1eea54bc26bc1e53d148f2511cbd971e5292a52016b14220bdc139dd21dc4",
+      "原评分JSON的SHA256": "e617929e9ed97ca9009a7c0b2462844a904db3895a8d768335860c731be7e5d5",
+      "题项总数": 4,
+      "题项状态统计": {
+        "OK": 4
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "月结!B2",
+          "value": "23778.00",
+          "status": "OK",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B2",
+            "原始材料/close.xlsx#明细!C2",
+            "原始材料/close.xlsx#明细!C3",
+            "原始材料/close.xlsx#明细!C4",
+            "原始材料/close.xlsx#明细!C5",
+            "原始材料/close.xlsx#明细!C6",
+            "原始材料/close.xlsx#明细!C7"
+          ]
+        },
+        {
+          "item_id": "月结!B6",
+          "value": "-0.085462",
+          "status": "OK",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B6",
+            "原始材料/close.xlsx#月结!B2",
+            "原始材料/close.xlsx#月结!B5"
+          ]
+        }
+      ],
+      "原v1.0自动分": 75.3571,
+      "原v1.0证据位置分": 7.8571,
+      "v1.1复核线索": [
+        {
+          "item_id": "月结!B6",
+          "evidence_via": "月结!B2",
+          "credited_refs": [
+            "原始材料/close.xlsx#明细!C2",
+            "原始材料/close.xlsx#明细!C3",
+            "原始材料/close.xlsx#明细!C4",
+            "原始材料/close.xlsx#明细!C5",
+            "原始材料/close.xlsx#明细!C6",
+            "原始材料/close.xlsx#明细!C7"
+          ]
+        }
+      ]
+    },
+    "T050": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F09",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "臻衡制造",
+      "题设主体": "臻衡制造（虚构）",
+      "自动分": 77.5,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 7.5,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [
+        "SCOPE_INCORRECT"
+      ],
+      "原答卷结构化文件SHA256": "b0e718274968975010970f19cd079f7a63d27c3a2486e77ee6c91445dab3f4c8",
+      "原评分JSON的SHA256": "92ec6f257918e91234827515be16620c69c7153e80b5875304ee2cee9f926d65",
+      "题项总数": 4,
+      "题项状态统计": {
+        "FIX": 2,
+        "OK": 2
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "月结!B2",
+          "value": "23856.00",
+          "status": "FIX",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B2",
+            "原始材料/close.xlsx#明细!C2",
+            "原始材料/close.xlsx#明细!C3",
+            "原始材料/close.xlsx#明细!C4",
+            "原始材料/close.xlsx#明细!C5",
+            "原始材料/close.xlsx#明细!C6",
+            "原始材料/close.xlsx#明细!C7"
+          ]
+        },
+        {
+          "item_id": "月结!B4",
+          "value": "16878.00",
+          "status": "FIX",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B4",
+            "原始材料/close.xlsx#明细!C5",
+            "原始材料/close.xlsx#明细!C6",
+            "原始材料/close.xlsx#明细!C7"
+          ]
+        },
+        {
+          "item_id": "月结!B6",
+          "value": "-0.082462",
+          "status": "OK",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B6",
+            "原始材料/close.xlsx#月结!B2",
+            "原始材料/close.xlsx#月结!B5",
+            "原始材料/close.xlsx#明细!C7"
+          ]
+        }
+      ],
+      "独立核验": {
+        "missing_detail_cells": [],
+        "source_formulas": {
+          "B2": "=SUM('明细'!C2:C6)",
+          "B3": "=SUM('明细'!C2:C4)",
+          "B4": "=SUM('明细'!C5:C7)+'明细'!C7",
+          "B6": "=IF(B5=0,\"n.a.\",(B2-B5)/B5)"
+        },
+        "submitted_formulas": {
+          "B2": "=SUM('明细'!C2:C7)",
+          "B3": "=SUM('明细'!C2:C4)",
+          "B4": "=SUM('明细'!C5:C7)",
+          "B6": "=IF(B5=0,\"n.a.\",(B2-B5)/B5)"
+        },
+        "changed_target_cells": [
+          "B2",
+          "B4"
+        ],
+        "recalculation": {
+          "state": "complete",
+          "all_checked_values_match": true,
+          "scenarios": [
+            {
+              "scenario": "original",
+              "overrides": {},
+              "expected": {
+                "B2": 23856,
+                "B3": 6978,
+                "B4": 16878,
+                "B6": -0.08246153846153846
+              },
+              "actual": {
+                "B2": 23856,
+                "B3": 6978,
+                "B4": 16878,
+                "B6": -0.0824615384615385
+              },
+              "differences": []
+            },
+            {
+              "scenario": "change_expense",
+              "overrides": {
+                "明细!C2": 1327.25
+              },
+              "expected": {
+                "B2": 23957.25,
+                "B3": 7079.25,
+                "B4": 16878,
+                "B6": -0.07856730769230769
+              },
+              "actual": {
+                "B2": 23957.25,
+                "B3": 7079.25,
+                "B4": 16878,
+                "B6": -0.0785673076923077
+              },
+              "differences": []
+            },
+            {
+              "scenario": "missing_as_zero",
+              "overrides": {
+                "明细!C7": 0
+              },
+              "expected": {
+                "B2": 17130,
+                "B3": 6978,
+                "B4": 10152,
+                "B6": -0.34115384615384614
+              },
+              "actual": {
+                "B2": 17130,
+                "B3": 6978,
+                "B4": 10152,
+                "B6": -0.341153846153846
+              },
+              "differences": []
+            },
+            {
+              "scenario": "zero_budget",
+              "overrides": {
+                "月结!B5": 0
+              },
+              "expected": {
+                "B2": 23856,
+                "B3": 6978,
+                "B4": 16878,
+                "B6": "n.a."
+              },
+              "actual": {
+                "B2": 23856,
+                "B3": 6978,
+                "B4": 16878,
+                "B6": "n.a."
+              },
+              "differences": []
+            }
+          ]
+        }
+      },
+      "原评分细项诊断": [
+        {
+          "item_id": "月结!B6",
+          "evidence_via": "月结!B2",
+          "credited_refs": [
+            "原始材料/close.xlsx#明细!C2",
+            "原始材料/close.xlsx#明细!C3",
+            "原始材料/close.xlsx#明细!C4",
+            "原始材料/close.xlsx#明细!C5",
+            "原始材料/close.xlsx#明细!C6"
+          ]
+        }
+      ],
+      "回传工作簿SHA256": "edcc3ae61318b155a692712c5e66fa68c2238374010589fc1aa51e89f3d76832"
+    },
+    "T053": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F09",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "臻衡制造（虚构）",
+      "题设主体": "臻衡制造（虚构）",
+      "自动分": 65.7143,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 0.7143,
+        "delivery": 5,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [],
+      "原答卷结构化文件SHA256": "d1e46bbc658f11498bd537b70acfd90e368e48ebefe656a3810f7f2b31c00887",
+      "原评分JSON的SHA256": "e32ae1f7c8e0b9ed9838f2ec27be90db2ad69bbd778bed64081c4cf4507da67b",
+      "题项总数": 4,
+      "题项状态统计": {
+        "OK": 1,
+        "REVIEW": 3
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "月结!B2",
+          "value": "待补资料",
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B2",
+            "原始材料/close.xlsx#明细!C2:C7",
+            "原始材料/close.xlsx#明细!C7",
+            "原始材料/close.xlsx#明细!D7"
+          ]
+        },
+        {
+          "item_id": "月结!B3",
+          "value": "7095.00",
+          "status": "OK",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B3",
+            "原始材料/close.xlsx#明细!C2:C4",
+            "原始材料/close.xlsx#明细!C2",
+            "原始材料/close.xlsx#明细!C3",
+            "原始材料/close.xlsx#明细!C4"
+          ]
+        },
+        {
+          "item_id": "月结!B4",
+          "value": "待补资料",
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B4",
+            "原始材料/close.xlsx#明细!C5:C7",
+            "原始材料/close.xlsx#明细!C7",
+            "原始材料/close.xlsx#明细!D7"
+          ]
+        },
+        {
+          "item_id": "月结!B6",
+          "value": "待补资料",
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/close.xlsx#月结!B6",
+            "原始材料/close.xlsx#月结!B2",
+            "原始材料/close.xlsx#月结!B5",
+            "原始材料/close.xlsx#明细!C7",
+            "原始材料/close.xlsx#明细!D7"
+          ]
+        }
+      ],
+      "独立核验": {
+        "missing_detail_cells": [
+          "明细!C7"
+        ],
+        "source_formulas": {
+          "B2": "=SUM('明细'!C2:C7)",
+          "B3": "=SUM('明细'!C2:C4)",
+          "B4": "=SUM('明细'!C5:C7)",
+          "B6": "=IF(B5=0,\"n.a.\",(B2-B5)/B5)"
+        },
+        "submitted_formulas": {
+          "B2": "=IF(COUNT('明细'!C2:C7)=ROWS('明细'!C2:C7),SUM('明细'!C2:C7),\"待补资料\")",
+          "B3": "=SUM('明细'!C2:C4)",
+          "B4": "=IF(COUNT('明细'!C5:C7)=ROWS('明细'!C5:C7),SUM('明细'!C5:C7),\"待补资料\")",
+          "B6": "=IF(B2=\"待补资料\",\"待补资料\",IF(B5=0,\"n.a.\",(B2-B5)/B5))"
+        },
+        "changed_target_cells": [
+          "B2",
+          "B4",
+          "B6"
+        ],
+        "recalculation": {
+          "state": "complete",
+          "all_checked_values_match": true,
+          "scenarios": [
+            {
+              "scenario": "original",
+              "overrides": {},
+              "expected": {
+                "B2": "待补资料",
+                "B3": 7095,
+                "B4": "待补资料",
+                "B6": "待补资料"
+              },
+              "actual": {
+                "B2": "待补资料",
+                "B3": 7095,
+                "B4": "待补资料",
+                "B6": "待补资料"
+              },
+              "differences": []
+            },
+            {
+              "scenario": "change_expense",
+              "overrides": {
+                "明细!C2": 1327.25
+              },
+              "expected": {
+                "B2": "待补资料",
+                "B3": 7157.25,
+                "B4": "待补资料",
+                "B6": "待补资料"
+              },
+              "actual": {
+                "B2": "待补资料",
+                "B3": 7157.25,
+                "B4": "待补资料",
+                "B6": "待补资料"
+              },
+              "differences": []
+            },
+            {
+              "scenario": "missing_as_zero",
+              "overrides": {
+                "明细!C7": 0
+              },
+              "expected": {
+                "B2": 17325,
+                "B3": 7095,
+                "B4": 10230,
+                "B6": -0.33365384615384613
+              },
+              "actual": {
+                "B2": 17325,
+                "B3": 7095,
+                "B4": 10230,
+                "B6": -0.333653846153846
+              },
+              "differences": []
+            },
+            {
+              "scenario": "zero_budget",
+              "overrides": {
+                "月结!B5": 0
+              },
+              "expected": {
+                "B2": "待补资料",
+                "B3": 7095,
+                "B4": "待补资料",
+                "B6": "待补资料"
+              },
+              "actual": {
+                "B2": "待补资料",
+                "B3": 7095,
+                "B4": "待补资料",
+                "B6": "待补资料"
+              },
+              "differences": []
+            },
+            {
+              "scenario": "supply_missing_amount",
+              "overrides": {
+                "明细!C7": 456.75
+              },
+              "expected": {
+                "B2": 17781.75,
+                "B3": 7095,
+                "B4": 10686.75,
+                "B6": -0.31608653846153845
+              },
+              "actual": {
+                "B2": 17781.75,
+                "B3": 7095,
+                "B4": 10686.75,
+                "B6": -0.316086538461538
+              },
+              "differences": []
+            }
+          ]
+        }
+      },
+      "原评分细项诊断": [
+        {
+          "item_id": "月结!B2",
+          "invalid_refs": [
+            "原始材料/close.xlsx#明细!C2:C7"
+          ]
+        },
+        {
+          "item_id": "月结!B3",
+          "invalid_refs": [
+            "原始材料/close.xlsx#明细!C2:C4"
+          ]
+        },
+        {
+          "item_id": "月结!B4",
+          "invalid_refs": [
+            "原始材料/close.xlsx#明细!C5:C7"
+          ]
+        },
+        "需人工核验等价公式：月结!B2 COUNT",
+        "需人工核验等价公式：月结!B4 COUNT",
+        "需人工核验等价公式：月结!B6 COUNT"
+      ],
+      "回传工作簿SHA256": "b83ad30e8f170ecb3aa998f4fa59709cf7649c126799663c4677d980d3c3a26d"
+    }
+  },
+  "未形成答卷的运行": {
+    "T005_原生CLI": {
+      "task_id": "T005",
+      "status": "BLOCKED_RUNTIME",
+      "turn_completed": false,
+      "completed_tool_commands": 0,
+      "reason": "Native Codex local helper could not initialize its sandbox loopback. Linux denied NETLINK_ROUTE before model execution."
+    }
+  }
+}

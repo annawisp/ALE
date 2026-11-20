@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+/local-run/
+/review-run/
+/04-execution/runs/
+/private/
+.env
