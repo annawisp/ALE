@@ -26,3 +26,7 @@ python -m zipfile -e 02-dataset/development_inputs_v1.0.zip local-run/input
 ```
 
 以 T005 为例，向受测端提交 `local-run/input/受测包/案例01/T005/` 下全部文件，含子目录。每题使用独立会话，同时保留原始输入和首次返回的文件。按题号将答卷归档为 `local-run/results/T005/response.json` 和 `workpaper.md`。月结题另收 `corrected.xlsx`。专家答案和评分程序留在评分端。评分步骤见 [05-scoring](../05-scoring/README.md)。
+
+## T005 后续投题
+
+[T005-r1 单题受测包](T005-r1_单题受测包.zip)沿用原始银行流水、账簿及回答模板，补充 REVIEW 时各字段的填写办法。请给后续 T005 运行单独编号。重演首次托管答卷时继续使用开发集 v1.0 内的原题。修订原因及历史得分见 [T005 裁定记录](../03-validation/T005-adjudication.md)。

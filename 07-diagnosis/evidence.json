@@ -1,5 +1,5 @@
 {
-  "说明": "节选自已交付的合成开发题答卷、原始评分与独立工作簿复算结果。空的人工分或最终分表示未出具该分数。SHA256 指向原始文件字节。",
+  "说明": "仅收录首轮 12 份合成开发题答卷。空人工分或最终分表示尚未出具。新增六题的结构化值与状态逐项对照来自 28 个原始题项。SHA-256 指向原始文件字节。",
   "题目": {
     "T001": {
       "运行方式": "ChatGPT 网页版 Accounting",
@@ -191,6 +191,917 @@
         "未确定匹配账簿ID": [
           "L003",
           "L099"
+        ]
+      },
+      "裁定": {
+        "归因": "已裁定（2026-11-21）：旧题面字段说明不清；B003 的待核判断正确",
+        "交叉核验": "B003.ledger_ids 同时填两条；参考答案要求空列表。公开模板未明确 REVIEW 时可否列候选。",
+        "复测动作": "新题面明确只有已确认的账簿编号才可写入 ledger_ids。待核时该栏填 []、difference 填 null；候选及原因写入底稿。新题实答单独计轮次。",
+        "口径边界": "首次作答保留 v1.1 客观分 76.6667/80 与原扣分记录；本项不计入插件强行匹配次数。人工分及最终分待评。"
+      }
+    },
+    "T013": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F03",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "岚序机器人",
+      "题设主体": "岚序机器人（虚构）",
+      "自动分": 77.5,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 7.5,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [
+        "SCOPE_INCORRECT"
+      ],
+      "原答卷结构化文件SHA256": "6a2fe2a0df617d53afc85fce4d53978555ce69fc90e789f1eb7864ca366a7079",
+      "原评分JSON的SHA256": "8da5413c8f12e0025db2519abdf58efb90b0579e0f01dbb891aeba4cb500c1fe",
+      "题项总数": 3,
+      "题项状态统计": {
+        "CLEARED": 3
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "I001",
+          "value": {
+            "bank_ids": [
+              "B001",
+              "B002",
+              "B003"
+            ],
+            "allocated": "30000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I001",
+            "原始材料/receipts.csv#B001",
+            "原始材料/receipts.csv#B002",
+            "原始材料/receipts.csv#B003"
+          ]
+        },
+        {
+          "item_id": "I002",
+          "value": {
+            "bank_ids": [
+              "B004"
+            ],
+            "allocated": "12000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I002",
+            "原始材料/receipts.csv#B004"
+          ]
+        },
+        {
+          "item_id": "I003",
+          "value": {
+            "bank_ids": [
+              "B005"
+            ],
+            "allocated": "8000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I003",
+            "原始材料/receipts.csv#B005"
+          ]
+        }
+      ],
+      "逐项参考核对": {
+        "数值或分录核对一致": 3,
+        "状态核对一致": 3,
+        "参考题项ID": [
+          "I001",
+          "I002",
+          "I003"
+        ]
+      },
+      "工作底稿首页主体原文": "岚序机器人（虚构） · SIM-103 · 2026年10月 · 金额单位为人民币元。"
+    },
+    "T014": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F03",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "岚序机器人",
+      "题设主体": "岚序机器人（虚构）",
+      "自动分": 77.5,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 7.5,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [
+        "SCOPE_INCORRECT"
+      ],
+      "原答卷结构化文件SHA256": "c561dcda978e7b2f3734da78f7b581f0c603153557831b5cddc1ea4b19bede21",
+      "原评分JSON的SHA256": "98f3ba7caaa96787e8d15d4f65ca5dba5f0a4be7978fe6431e5676ada4142b39",
+      "题项总数": 3,
+      "题项状态统计": {
+        "CLEARED": 2,
+        "PARTIAL": 1
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "I001",
+          "value": {
+            "bank_ids": [
+              "B001",
+              "B002",
+              "B003"
+            ],
+            "allocated": "28000.00",
+            "remaining": "2000.00",
+            "unallocated": "0.00"
+          },
+          "status": "PARTIAL",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I001",
+            "原始材料/receipts.csv#B001",
+            "原始材料/receipts.csv#B002",
+            "原始材料/receipts.csv#B003"
+          ]
+        },
+        {
+          "item_id": "I002",
+          "value": {
+            "bank_ids": [
+              "B004"
+            ],
+            "allocated": "12000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I002",
+            "原始材料/receipts.csv#B004"
+          ]
+        },
+        {
+          "item_id": "I003",
+          "value": {
+            "bank_ids": [
+              "B005"
+            ],
+            "allocated": "8000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I003",
+            "原始材料/receipts.csv#B005"
+          ]
+        }
+      ],
+      "逐项参考核对": {
+        "数值或分录核对一致": 3,
+        "状态核对一致": 3,
+        "参考题项ID": [
+          "I001",
+          "I002",
+          "I003"
+        ]
+      }
+    },
+    "T017": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F03",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "岚序机器人",
+      "题设主体": "岚序机器人（虚构）",
+      "自动分": 77.5,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 7.5,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "自动检查发现失败项，待人工复核",
+      "原报告门槛标记": [
+        "SCOPE_INCORRECT"
+      ],
+      "原答卷结构化文件SHA256": "2d1a5d338da857f287165ca37b16aa67ef05df23dd9ce5cbd95bec163fad7078",
+      "原评分JSON的SHA256": "c5b0cdaab9438e8d7e76fa1740768c6a1b0a278bbb7c2cfa4912af21634fc844",
+      "题项总数": 4,
+      "题项状态统计": {
+        "CLEARED": 2,
+        "REVIEW": 2
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "I001",
+          "value": {
+            "bank_ids": [],
+            "allocated": "0.00",
+            "remaining": "30000.00",
+            "unallocated": null
+          },
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I001",
+            "原始材料/invoices.csv#I099",
+            "原始材料/receipts.csv#B001",
+            "原始材料/receipts.csv#B002",
+            "原始材料/receipts.csv#B003"
+          ]
+        },
+        {
+          "item_id": "I002",
+          "value": {
+            "bank_ids": [
+              "B004"
+            ],
+            "allocated": "12000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I002",
+            "原始材料/receipts.csv#B004"
+          ]
+        },
+        {
+          "item_id": "I003",
+          "value": {
+            "bank_ids": [
+              "B005"
+            ],
+            "allocated": "8000.00",
+            "remaining": "0.00",
+            "unallocated": "0.00"
+          },
+          "status": "CLEARED",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I003",
+            "原始材料/receipts.csv#B005"
+          ]
+        },
+        {
+          "item_id": "I099",
+          "value": {
+            "bank_ids": [],
+            "allocated": "0.00",
+            "remaining": "30000.00",
+            "unallocated": null
+          },
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/invoices.csv#I099",
+            "原始材料/invoices.csv#I001",
+            "原始材料/receipts.csv#B001",
+            "原始材料/receipts.csv#B002",
+            "原始材料/receipts.csv#B003"
+          ]
+        }
+      ],
+      "逐项参考核对": {
+        "数值或分录核对一致": 4,
+        "状态核对一致": 4,
+        "参考题项ID": [
+          "I001",
+          "I002",
+          "I003",
+          "I099"
+        ]
+      }
+    },
+    "T037": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F07",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "睿禾咨询（虚构）",
+      "题设主体": "睿禾咨询（虚构）",
+      "自动分": 80.0,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "待人工评分",
+      "原报告门槛标记": [],
+      "原答卷结构化文件SHA256": "ed005dfc36502df0a75f0479f064186f71c1f50c241a33b51d221d12efff2844",
+      "原评分JSON的SHA256": "4c4968f66fb10f83927b40d72ed5dfa49c4380520b80d47d8dc3d746db004f88",
+      "题项总数": 6,
+      "题项状态统计": {
+        "DRAFT": 6
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "D01",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-办公费",
+                "debit": "1011.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "131.43",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1142.43"
+              }
+            ],
+            "gross": "1142.43"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p1",
+            "原始材料/business_support.csv#D01",
+            "原始材料/coding_rules.csv#P1"
+          ]
+        },
+        {
+          "item_id": "D02",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-技术服务费",
+                "debit": "2011.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "120.66",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "2131.66"
+              }
+            ],
+            "gross": "2131.66"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p2",
+            "原始材料/business_support.csv#D02",
+            "原始材料/coding_rules.csv#P2"
+          ]
+        },
+        {
+          "item_id": "D03",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-差旅费",
+                "debit": "811.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "811.00"
+              }
+            ],
+            "gross": "811.00"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p3",
+            "原始材料/business_support.csv#D03",
+            "原始材料/coding_rules.csv#P3"
+          ]
+        },
+        {
+          "item_id": "D04",
+          "value": {
+            "entries": [
+              {
+                "account": "1601-固定资产",
+                "debit": "4011.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "521.43",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "4532.43"
+              }
+            ],
+            "gross": "4532.43"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p4",
+            "原始材料/business_support.csv#D04",
+            "原始材料/coding_rules.csv#P4"
+          ]
+        },
+        {
+          "item_id": "D05",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-办公费",
+                "debit": "1211.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "157.43",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1368.43"
+              }
+            ],
+            "gross": "1368.43"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p5",
+            "原始材料/business_support.csv#D05",
+            "原始材料/coding_rules.csv#P1"
+          ]
+        },
+        {
+          "item_id": "D06",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-技术服务费",
+                "debit": "1511.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "90.66",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1601.66"
+              }
+            ],
+            "gross": "1601.66"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p6",
+            "原始材料/business_support.csv#D06",
+            "原始材料/coding_rules.csv#P2"
+          ]
+        }
+      ],
+      "逐项参考核对": {
+        "数值或分录核对一致": 6,
+        "状态核对一致": 6,
+        "参考题项ID": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06"
+        ]
+      }
+    },
+    "T038": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F07",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "睿禾咨询（虚构）",
+      "题设主体": "睿禾咨询（虚构）",
+      "自动分": 80.0,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "待人工评分",
+      "原报告门槛标记": [],
+      "原答卷结构化文件SHA256": "f40784c941552f799951a010196a2f8637dbd4fde4d836a703826594f3f66012",
+      "原评分JSON的SHA256": "31cccd9f7ba626080d75b2678bf83accc04f84b4352d70230df28eeb540bf692",
+      "题项总数": 6,
+      "题项状态统计": {
+        "DRAFT": 5,
+        "REVIEW": 1
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "D01",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-办公费",
+                "debit": "1022.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "132.86",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1154.86"
+              }
+            ],
+            "gross": "1154.86"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p1",
+            "原始材料/business_support.csv#D01",
+            "原始材料/coding_rules.csv#P1"
+          ]
+        },
+        {
+          "item_id": "D02",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-技术服务费",
+                "debit": "2022.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "121.32",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "2143.32"
+              }
+            ],
+            "gross": "2143.32"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p2",
+            "原始材料/business_support.csv#D02",
+            "原始材料/coding_rules.csv#P2"
+          ]
+        },
+        {
+          "item_id": "D03",
+          "value": {
+            "entries": [],
+            "gross": "832.00"
+          },
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p3",
+            "原始材料/business_support.csv#D03",
+            "原始材料/coding_rules.csv#P3"
+          ]
+        },
+        {
+          "item_id": "D04",
+          "value": {
+            "entries": [
+              {
+                "account": "1601-固定资产",
+                "debit": "4022.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "522.86",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "4544.86"
+              }
+            ],
+            "gross": "4544.86"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p4",
+            "原始材料/business_support.csv#D04",
+            "原始材料/coding_rules.csv#P4"
+          ]
+        },
+        {
+          "item_id": "D05",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-办公费",
+                "debit": "1222.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "158.86",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1380.86"
+              }
+            ],
+            "gross": "1380.86"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p5",
+            "原始材料/business_support.csv#D05",
+            "原始材料/coding_rules.csv#P1"
+          ]
+        },
+        {
+          "item_id": "D06",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-技术服务费",
+                "debit": "1522.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "91.32",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1613.32"
+              }
+            ],
+            "gross": "1613.32"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p6",
+            "原始材料/business_support.csv#D06",
+            "原始材料/coding_rules.csv#P2"
+          ]
+        }
+      ],
+      "逐项参考核对": {
+        "数值或分录核对一致": 6,
+        "状态核对一致": 6,
+        "参考题项ID": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06"
+        ]
+      }
+    },
+    "T041": {
+      "运行方式": "独立托管 Codex 会话使用 Accounting",
+      "案例": "F07",
+      "运行轮次": 1,
+      "自动评分口径": "v1.1",
+      "实际主体": "睿禾咨询（虚构）",
+      "题设主体": "睿禾咨询（虚构）",
+      "自动分": 80.0,
+      "自动满分": 80,
+      "人工分": null,
+      "最终分": null,
+      "自动分构成": {
+        "scope": 10.0,
+        "values": 30.0,
+        "statuses": 10.0,
+        "evidence_locations": 10.0,
+        "delivery": 10,
+        "integrity": 10
+      },
+      "原评分报告状态": "待人工评分",
+      "原报告门槛标记": [],
+      "原答卷结构化文件SHA256": "7d00d584817137ac29f63d3e50e054889096c768ef91ea994f9babf98eb43d26",
+      "原评分JSON的SHA256": "768273d949438470cb597fff69e4bbf7de93f47da1c6629821ce7300e1ceae18",
+      "题项总数": 6,
+      "题项状态统计": {
+        "DRAFT": 5,
+        "REVIEW": 1
+      },
+      "答卷题项摘录": [
+        {
+          "item_id": "D01",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-办公费",
+                "debit": "1055.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "137.15",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1192.15"
+              }
+            ],
+            "gross": "1192.15"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p1",
+            "原始材料/business_support.csv#D01",
+            "原始材料/coding_rules.csv#P1"
+          ]
+        },
+        {
+          "item_id": "D02",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-技术服务费",
+                "debit": "2055.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "123.30",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "2178.30"
+              }
+            ],
+            "gross": "2178.30"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p2",
+            "原始材料/business_support.csv#D02",
+            "原始材料/coding_rules.csv#P2"
+          ]
+        },
+        {
+          "item_id": "D03",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-差旅费",
+                "debit": "855.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "855.00"
+              }
+            ],
+            "gross": "855.00"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p3",
+            "原始材料/business_support.csv#D03",
+            "原始材料/coding_rules.csv#P3"
+          ]
+        },
+        {
+          "item_id": "D04",
+          "value": {
+            "entries": [],
+            "gross": "4582.15"
+          },
+          "status": "REVIEW",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p4",
+            "原始材料/business_support.csv#D04",
+            "原始材料/coding_rules.csv#P4"
+          ]
+        },
+        {
+          "item_id": "D05",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-办公费",
+                "debit": "1255.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "163.15",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1418.15"
+              }
+            ],
+            "gross": "1418.15"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p5",
+            "原始材料/business_support.csv#D05",
+            "原始材料/coding_rules.csv#P1"
+          ]
+        },
+        {
+          "item_id": "D06",
+          "value": {
+            "entries": [
+              {
+                "account": "6602-技术服务费",
+                "debit": "1555.00",
+                "credit": "0.00"
+              },
+              {
+                "account": "2221-进项税额",
+                "debit": "93.30",
+                "credit": "0.00"
+              },
+              {
+                "account": "2202-应付账款",
+                "debit": "0.00",
+                "credit": "1648.30"
+              }
+            ],
+            "gross": "1648.30"
+          },
+          "status": "DRAFT",
+          "evidence_refs": [
+            "原始材料/原始凭证.pdf#p6",
+            "原始材料/business_support.csv#D06",
+            "原始材料/coding_rules.csv#P2"
+          ]
+        }
+      ],
+      "逐项参考核对": {
+        "数值或分录核对一致": 6,
+        "状态核对一致": 6,
+        "参考题项ID": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06"
         ]
       }
     },
@@ -668,7 +1579,8 @@
         "需人工核验等价公式：月结!B4 COUNT",
         "需人工核验等价公式：月结!B6 COUNT"
       ],
-      "回传工作簿SHA256": "b83ad30e8f170ecb3aa998f4fa59709cf7649c126799663c4677d980d3c3a26d"
+      "回传工作簿SHA256": "b83ad30e8f170ecb3aa998f4fa59709cf7649c126799663c4677d980d3c3a26d",
+      "后续专业复核": "待复核。按题设区分区域引用与逐格引用；复核 COUNT/ROWS 公式的实际业务含义与输入情景覆盖，单独记录裁定。"
     }
   },
   "未形成答卷的运行": {
@@ -678,6 +1590,36 @@
       "turn_completed": false,
       "completed_tool_commands": 0,
       "reason": "Native Codex local helper could not initialize its sandbox loopback. Linux denied NETLINK_ROUTE before model execution."
+    }
+  },
+  "全体主体字段核验": {
+    "可判定答卷": 12,
+    "遗漏括注答卷": [
+      "T013",
+      "T014",
+      "T017",
+      "T049",
+      "T050"
+    ],
+    "案例族总数": 4,
+    "遗漏全称的案例族": 2,
+    "分类": {
+      "F01": {
+        "可判定答卷": 3,
+        "遗漏括注": 0
+      },
+      "F03": {
+        "可判定答卷": 3,
+        "遗漏括注": 3
+      },
+      "F07": {
+        "可判定答卷": 3,
+        "遗漏括注": 0
+      },
+      "F09": {
+        "可判定答卷": 3,
+        "遗漏括注": 2
+      }
     }
   }
 }
