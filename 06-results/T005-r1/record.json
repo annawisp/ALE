@@ -1,0 +1,67 @@
+{
+  "task_id": "T005",
+  "revision": "r1",
+  "cohort": "公开开发题回归与托管预检",
+  "date_beijing": "2026-11-21",
+  "runtime": "hosted_codex",
+  "run_status": "DELIVERED",
+  "preflight": "PASS",
+  "fresh_session_without_parent_history": true,
+  "provider_model_snapshot": null,
+  "account_memory_independently_verified": false,
+  "plugin": {
+    "name": "accounting",
+    "author": "OpenAI",
+    "version": "1.0.1",
+    "package_sha256": "db7625cc1ed9daca7a573c522d0bb276f5efcf27a51acd63c5a8edfc91d067fb",
+    "manifest_sha256": "2ae7bfabab0a10fdcc9bb69b5861766d35082fc93ce9d3dbee3ca67c092fdacf",
+    "instructions_sha256": "5c54b57f0ff726706188adad265545f5e0b43e3b6448ef175b04d215b7baa88e",
+    "isolated_full_read_stdout_sha256": "5c54b57f0ff726706188adad265545f5e0b43e3b6448ef175b04d215b7baa88e"
+  },
+  "file_process": {
+    "single_task_read_only": true,
+    "network": "blocked",
+    "output_initially_empty": true,
+    "logged_operations": 6,
+    "first_outputs_observed_after_operation": 6,
+    "input_unchanged_at_recorded_boundaries": true
+  },
+  "input_archive_sha256": "37c9c14eaf371a31194d2dc870a97e38b9c73b7ebbde00979bd3e1e40888cfaa",
+  "input_files_sha256": {
+    "input_manifest.json": "9dde87ab8347659ec142cf2fdb47bfdb931a5e8df6aa1d39906c6f223cf71e53",
+    "任务书.md": "23fa7e5aacb2cacb96094174e4998dd63f8bfcaf96ab70a5b3cb6c4a299fb959",
+    "原始材料/bank.csv": "f62be5320c40d176b465608faf5d9670b507c3130df915c6c635dc498ce4ff2d",
+    "原始材料/ledger.csv": "3c044ec8a1a1414dee067af21b7dc3601c3e6d549ff075135f63a3d93482b025",
+    "回答模板.json": "377b71adda5231cc4b3293a45e0c6bd7c92d379b20bebc74a3b656f13a7c1c15",
+    "输出字段说明.md": "872e4af56653bb459f879404a6c1f1e6329f3ee2d1011f94778479a92233515a"
+  },
+  "submission_sha256": {
+    "response.json": "07bf2b9cb2b7f8af63f1c2123dd9fb463ddc6e18dfdd695103e9cda5a6d64d83",
+    "workpaper.md": "268769f8eb8a186665cd68ef82aa8113767362f851f03fb42a6eaacc7f2dbe87"
+  },
+  "reference_archive_sha256": "b7f70734a4d8856e7571d74216d80410f0901adbe91cbee985193d73c6d70c32",
+  "scoring_version": "v1.2",
+  "scorer_sha256": "4c3e1b21e1a0505bb13d93aa69df62ee6d22e2b1c2caf2f84393252c0f71eedb",
+  "objective_report": {
+    "task_id": "T005",
+    "auto_score": 80.0,
+    "max_auto_score": 80,
+    "manual_score": null,
+    "final_score": null,
+    "status": "待人工评分",
+    "components": {
+      "scope": 10.0,
+      "values": 30.0,
+      "statuses": 10.0,
+      "evidence_locations": 10.0,
+      "delivery": 10,
+      "integrity": 10
+    },
+    "fatal_errors": [],
+    "critical_errors": [],
+    "required_fact_errors": [],
+    "gate_errors": [],
+    "details": [],
+    "notes": "引用位置核验不等于引用语义正确；需人工判断。客观评分技术基线 v1.2 支持SUM、IF、ROUND、COUNT引用、ROWS引用及基本运算；超出支持范围的公式需人工核验。"
+  }
+}

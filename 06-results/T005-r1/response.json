@@ -1,0 +1,143 @@
+{
+  "task_id": "T005",
+  "scope": {
+    "entity": "星屿软件（虚构）",
+    "account": "SIM-101",
+    "period": "2026-10",
+    "currency": "CNY"
+  },
+  "items": [
+    {
+      "item_id": "B001",
+      "value": {
+        "ledger_ids": [
+          "L001"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B001",
+        "原始材料/ledger.csv#L001"
+      ],
+      "reason": "业务编号 CN-5-1 唯一对应 L001，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "B002",
+      "value": {
+        "ledger_ids": [
+          "L002"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B002",
+        "原始材料/ledger.csv#L002"
+      ],
+      "reason": "业务编号 CN-5-2 唯一对应 L002，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "B003",
+      "value": {
+        "ledger_ids": [],
+        "difference": null
+      },
+      "status": "REVIEW",
+      "evidence_refs": [
+        "原始材料/bank.csv#B003",
+        "原始材料/ledger.csv#L003",
+        "原始材料/ledger.csv#L099"
+      ],
+      "reason": "银行业务编号空白，交易对手、日期及金额对应两条账簿记录，无法确认唯一对应关系。"
+    },
+    {
+      "item_id": "B004",
+      "value": {
+        "ledger_ids": [
+          "L004"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B004",
+        "原始材料/ledger.csv#L004"
+      ],
+      "reason": "业务编号 CN-5-4 唯一对应 L004，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "B005",
+      "value": {
+        "ledger_ids": [
+          "L005"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B005",
+        "原始材料/ledger.csv#L005"
+      ],
+      "reason": "业务编号 CN-5-5 唯一对应 L005，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "B006",
+      "value": {
+        "ledger_ids": [
+          "L006"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B006",
+        "原始材料/ledger.csv#L006"
+      ],
+      "reason": "业务编号 CN-5-6 唯一对应 L006，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "B007",
+      "value": {
+        "ledger_ids": [
+          "L007"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B007",
+        "原始材料/ledger.csv#L007"
+      ],
+      "reason": "业务编号 CN-5-7 唯一对应 L007，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "B008",
+      "value": {
+        "ledger_ids": [
+          "L008"
+        ],
+        "difference": "0.00"
+      },
+      "status": "MATCHED",
+      "evidence_refs": [
+        "原始材料/bank.csv#B008",
+        "原始材料/ledger.csv#L008"
+      ],
+      "reason": "业务编号 CN-5-8 唯一对应 L008，账面减银行为 0.00 元。"
+    },
+    {
+      "item_id": "UNMATCHED_LEDGER",
+      "value": [
+        "L003",
+        "L099"
+      ],
+      "status": "INFO",
+      "evidence_refs": [
+        "原始材料/ledger.csv#L003",
+        "原始材料/ledger.csv#L099"
+      ],
+      "reason": "L003 和 L099 均为 B003 的待核候选，两者均未被本期任何已确认关系引用。"
+    }
+  ]
+}
