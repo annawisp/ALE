@@ -5,6 +5,7 @@ import contextlib
 import datetime as dt
 import fcntl
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -20,7 +21,14 @@ from zipfile import ZipFile
 from broker import relay
 
 PLUGIN_DIGEST = "db7625cc1ed9daca7a573c522d0bb276f5efcf27a51acd63c5a8edfc91d067fb"
-SCORER_DIGEST = "418ecc8fcd48fbe51d2698596868654ddb536d2f899249359f46fbe44c965cb4"
+PUBLIC_SCORER_DIGEST = "4c3e1b21e1a0505bb13d93aa69df62ee6d22e2b1c2caf2f84393252c0f71eedb"
+FULL_SCORER_DIGEST = "61d3e842c55f506439e08e7a77a39bfa970114729d783e1952c3dd9d2c51ab84"
+APPROVED_ANSWER_PACKAGES = {
+    "8ad5eb18097ed4d18beea61a748e6ae75b1faf399769ad33bfb1fb1ab6872263": PUBLIC_SCORER_DIGEST,
+    "b7f70734a4d8856e7571d74216d80410f0901adbe91cbee985193d73c6d70c32": PUBLIC_SCORER_DIGEST,
+    "9e20c9035d698d93ed48c6a3de8ba0f2bbe16fc67a20348b4222df5f29e1d8cc": FULL_SCORER_DIGEST,
+}
+PUBLIC_TASKS = {f"T{n:03d}" for start in (1, 13, 37, 49) for n in range(start, start + 6)}
 READY = {"DELIVERED","INVALID_DELIVERY"}
 IMAGE = "accounting-codex-pilot:1"
 
@@ -230,17 +238,41 @@ def run_batch(a):
 def score_batch(a):
     plan=read_json(a.run_dir/"plan.json")
     reports=a.run_dir/"scores"
-    reports.mkdir(exist_ok=True)
     summaries=[]
+    archive=a.answers.read_bytes()
+    answers_sha=digest(archive)
+    if answers_sha not in APPROVED_ANSWER_PACKAGES:
+        raise ValueError("Scoring configuration: this reference archive does not match an approved v1.2 package")
     with tempfile.TemporaryDirectory(prefix="acct-score-") as tmp:
         private=Path(tmp)
-        with ZipFile(a.answers) as z:
+        with ZipFile(io.BytesIO(archive)) as z:
             unpack(z,"答案包/",private/"gold")
-        scorer=private/"gold"/"score.py"
+        embedded=private/"gold"/"score.py"
+        public=Path(__file__).resolve().parents[1]/"05-scoring"/"score.py"
+        scorer=a.scorer or (embedded if embedded.is_file() else public)
         if not scorer.is_file():
-            scorer=a.scorer
-        if not scorer.is_file() or digest(scorer.read_bytes())!=SCORER_DIGEST:
-            raise ValueError("Scorer must match the agreed v1.1 package")
+            raise ValueError("Scoring configuration: cannot locate the v1.2 scoring program")
+        scorer_sha=digest(scorer.read_bytes())
+        if scorer_sha!=APPROVED_ANSWER_PACKAGES[answers_sha]:
+            raise ValueError("Scoring configuration: the selected scorer does not match this v1.2 reference package")
+        if scorer_sha==PUBLIC_SCORER_DIGEST and set(plan["tasks"])-PUBLIC_TASKS:
+            raise ValueError("Scoring configuration: tasks outside the public split require the full private v1.2 package")
+        for t,case in plan["tasks"].items():
+            gold=private/"gold"/"专家答案"/t
+            manifest=gold/"input_manifest.json"
+            if (not (gold/"gold.json").is_file() or not manifest.is_file()
+                    or digest(manifest.read_bytes())!=case["inputs"]["input_manifest.json"]):
+                raise ValueError("Scoring configuration: reference task or input manifest mismatch for "+t)
+        grading={"baseline":"v1.2","scorer_sha256":scorer_sha,"answers_sha256":answers_sha}
+        grading_file=reports/"grading.json"
+        if grading_file.exists():
+            if read_json(grading_file)!=grading:
+                raise ValueError("Scoring configuration: this batch already uses a different scorer or reference archive")
+        elif reports.is_dir() and any(reports.iterdir()):
+            raise ValueError("Scoring configuration: the existing reports have no recorded grading version")
+        else:
+            reports.mkdir(exist_ok=True)
+            write(grading_file,grading)
         for t,case in plan["tasks"].items():
             approved=[(p,r) for p,r in receipts(a.run_dir,t) if r.get("scorable") and r.get("status") in READY]
             if not approved:
@@ -280,7 +312,8 @@ def main():
     run.add_argument("--image",default=IMAGE);run.add_argument("--timeout",type=int,default=900)
     run.add_argument("--retry",action="store_true",help="Repeat infrastructure failures in new attempts, never overwrite prior records")
     run.set_defaults(fn=run_batch)
-    grade=sub.add_parser("score");grade.add_argument("--answers",type=Path,required=True);grade.add_argument("--scorer",type=Path,default=Path(__file__).resolve().parent.parent/"05-scoring"/"score.py")
+    grade=sub.add_parser("score");grade.add_argument("--answers",type=Path,required=True)
+    grade.add_argument("--scorer",type=Path,help="Use this pinned v1.2 scorer instead of the bundled or public scorer")
     grade.set_defaults(fn=score_batch)
     for command in (prep,run,grade):command.add_argument("--run-dir",type=Path,required=True)
     a=parser.parse_args()

@@ -11,6 +11,7 @@ from zipfile import ZipFile
 
 sys.dont_write_bytecode = True
 from score import score
+from verify_monthly import verify_monthly
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "02-dataset"
@@ -46,6 +47,51 @@ def extract_public(archive, destination, allowed_roots):
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(z.read(member))
     return len(paths)
+
+
+def verify_r1(temp):
+    """Check the revised single-task pairing and exercise its independent scoring rules."""
+    root = temp/"t005-r1"
+    source = PurePosixPath("受测包/案例01/T005")
+    inputs = DATA/"T005-r1_单题受测包.zip"
+    answers = SCORING/"T005-r1_单题评分包_v1.2.zip"
+    checked(extract_public(inputs, root, {source}) == 6, "T005-r1 unexpected input inventory")
+    with ZipFile(answers) as z:
+        allowed = {"答案包/专家答案/T005/"+n for n in ("input_manifest.json","gold.json","reference_response.json",
+                    "manual_review_template.json","reference_workpaper.md","专家解析.md")}
+        allowed.update({"答案包/04_人工评分量规.md","答案包/00_运行说明.md"})
+        checked(set(z.namelist()) == allowed and len(z.namelist()) == len(allowed), "T005-r1 unexpected answer inventory")
+        for name in allowed:
+            safe = root/name
+            safe.parent.mkdir(parents=True, exist_ok=True)
+            safe.write_bytes(z.read(name))
+    gold = root/"答案包/专家答案/T005"
+    question = root.joinpath(*source.parts)
+    manifest = read_json(question/"input_manifest.json")
+    checked(manifest == read_json(gold/"input_manifest.json") and len(manifest["sha256"]) == 5,
+            "T005-r1 inconsistent paired input manifests")
+    for name, digest in manifest["sha256"].items():
+        checked(hashlib.sha256((question/name).read_bytes()).hexdigest() == digest, "T005-r1 input changed")
+    result = root/"results/T005"
+    result.mkdir(parents=True)
+    workpaper = (gold/"reference_workpaper.md").read_text(encoding="utf-8")
+    cases = [
+        ("reference", [], None, "REVIEW", workpaper, 80, []),
+        ("candidate list", ["L003","L099"], None, "REVIEW", workpaper, 76.6667, []),
+        ("unknown difference populated", [], "0.00", "REVIEW", workpaper, 76.6667, []),
+        ("unsupported match", ["L003"], "0.00", "MATCHED", workpaper, 75.5556, ["UNSUPPORTED_DEFINITE_CONCLUSION"]),
+        ("reason requires human review", [], None, "REVIEW", "待核", 80, []),
+    ]
+    for name, ids, difference, status, note, expected, fatal in cases:
+        r = read_json(gold/"reference_response.json")
+        target = next(row for row in r["items"] if row["item_id"] == "B003")
+        target.update(status=status, value={"ledger_ids": ids, "difference": difference})
+        json_out(result/"response.json", r)
+        (result/"workpaper.md").write_text(note, encoding="utf-8")
+        report = score(root/"受测包", root/"答案包", root/"results", "T005")
+        checked(report["auto_score"] == expected and report["fatal_errors"] == fatal
+                and report["final_score"] is None and report["manual_score"] is None, f"T005-r1 {name}")
+    print(f"Verified T005-r1 input pairing and {len(cases)} single-task scoring controls.")
 
 
 def main():
@@ -117,6 +163,8 @@ def main():
         ratio["evidence_refs"].remove("原始材料/close.xlsx#月结!B5")
         json_out(response, data)
         checked(run("T049")["components"]["evidence_locations"] < 10, "Broken evidence chain got full credit")
+        verify_monthly(ROOT, stage, gold/"专家答案/T053", checked)
+        verify_r1(stage)
     print(f"Verified {len(split)} public inputs and reference submissions; {len(pilot)} pilot tasks.")
     print(f"Verified {counts[0]} input files and {counts[1]} reference files, by item allowlist.")
     print("All 24 reference submissions received 80/80 automated points. Three scoring controls passed.")
